@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "futso",
+    "slug": "futso",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff",
+      "name": "YourAppName",
+      "slug": "your-app-slug",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "version": "1.0.0",
+      "android": {
+        "package": "com.yourcompany.futso"
+      },
+      "ios": {
+        "bundleIdentifier": "com.yourcompany.futso"
+      }
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.trevorsimon.futso"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

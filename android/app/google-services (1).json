@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "644182716697",
+    "project_id": "futso-b202b",
+    "storage_bucket": "futso-b202b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644182716697:android:3ac3e7a5317f220c43d588",
+        "android_client_info": {
+          "package_name": "com.trevorsimon.futso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644182716697-e6bfv7oa0dl6bq5of47mg202mnbs5qfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5jMyxIZhGKnCKIBTTJV7OxROs_NSK0gQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644182716697-e6bfv7oa0dl6bq5of47mg202mnbs5qfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
