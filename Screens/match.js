@@ -7,8 +7,19 @@ import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import { Circle, G, Svg, Text as SvgText } from 'react-native-svg';
-
+import axios from 'axios'; // Import axios
 import firestore from '@react-native-firebase/firestore'; // Import Firebase Firestore
+
+// Assuming TeamModel is defined in the same file
+class TeamModel {
+  constructor(id, name,team1,team2) {
+    this.id = id;
+    this.name = name;
+    this.team1 = team1;
+    this.team2 = team2;
+    // Add other properties as needed
+  }
+}
 
 const CircularTimer = ({ time }) => {
   const radius = 10; // Adjust the radius as needed
@@ -50,27 +61,19 @@ const MatchScreen = ({ selectedLeague }) => {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const matchesSnapshot = await firestore()
-          .collection('matches')
-          .where('league', '==', selectedLeague)
-          .get();
+        const response = await axios.get(`http://192.168.43.212:8080/api/match`);
+        const data = response.data;
 
-        const matchesData = matchesSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          league: doc.data().league,
-          homeTeam: doc.data().homeTeam,
-          awayTeam: doc.data().awayTeam,
-          score: doc.data().score,
-          timer: doc.data().timer,
-        }));
-
+        const matchesData = data.map((match) => new TeamModel(match.id, match.name,match.team1,match.team2));
         setMatches(matchesData);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching matches:', error);
+        console.error('Error fetching teams:', error);
         setLoading(false);
       }
     };
+
+    
 
     fetchMatches();
   }, [selectedLeague]);
@@ -85,14 +88,17 @@ const MatchScreen = ({ selectedLeague }) => {
 
   return (
     <View style={styles.tabContent}>
+      <View style={styles.tabContent}>
       {matches.map((match) => (
         <View key={match.id} style={styles.matchContainer}>
-          <Text>
-            {match.league}: {match.homeTeam} vs. {match.awayTeam}, Score: {match.score}
-          </Text>
-          <CircularTimer time={match.timer} />
+        <Text>
+        {/* ${match.id}.${match.name}  */}
+     {`${match.team1.name} vs ${match.team2.name}`}
+</Text>
+
         </View>
       ))}
+    </View>
     </View>
   );
 };
